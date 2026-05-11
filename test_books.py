@@ -25,6 +25,7 @@ class TestBooks:
 
     def test_create_book_default_status(self, client):
         """Книга створюється зі статусом за замовчуванням"""
+        # PR CI test for default status
         response = client.post("/api/books", json={
             "title": "Test Book",
             "created_by": "Katrenko Stanislav",
