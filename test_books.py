@@ -30,6 +30,8 @@ class TestBooks:
             "created_by": "Katrenko Stanislav",
         })
         assert response.status_code == 201
+        data = response.get_json()
+        assert data["status"] == "available"
 
     def test_update_book(self, client):
         response = client.put("/api/books/1", json={"title": "Updated Book", "status": "checked-out"})
