@@ -26,9 +26,11 @@ class TestBooks:
     def test_create_book_default_status(self, client):
         response = client.post("/api/books", json={
             "title": "Test Book",
-            "created_by": "Ім'я Прізвище",
+            "author_id": 1,
         })
         assert response.status_code == 201
+        data = response.get_json()
+        assert data["status"] == "available"
 
     def test_update_book(self, client):
         response = client.put("/api/books/1", json={"title": "Updated Book", "status": "checked-out"})
