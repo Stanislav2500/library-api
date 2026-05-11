@@ -43,7 +43,7 @@ def setup_database(db_connection):
         CREATE TABLE books (
             id SERIAL PRIMARY KEY,
             title VARCHAR(200) NOT NULL,
-            author_id INTEGER REFERENCES authors(id),
+            author_id INTEGER REFERENCES authors(id) ON DELETE CASCADE,
             status VARCHAR(20) DEFAULT 'available'
         )
     """)
