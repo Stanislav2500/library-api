@@ -27,7 +27,7 @@ class TestBooks:
         """Книга створюється зі статусом за замовчуванням"""
         response = client.post("/api/books", json={
             "title": "Test Book",
-            "created_by": "Ім'я Прізвище",
+            "created_by": "Katrenko Stanislav",
         })
         assert response.status_code == 201
 
